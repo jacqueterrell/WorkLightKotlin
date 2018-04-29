@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Work Light-Kotlin</string>
+
+    <string name="two_minutes">2 Minutes</string>
+    <string name="ten_minutes">10 Minutes</string>
+    <string name="never">Never</string>
+    <string name="on_notification">WorkLight is running</string>
+
+
+    <string-array name="theme_list">
+        <item>Firearms</item>
+        <item>Digital</item>
+    </string-array>
+
+    <string-array name="timer_list">
+        <item>2 Minutes</item>
+        <item>10 Minutes</item>
+        <item>Never</item>
+    </string-array>
+</resources>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainScreen"
+    >
+
+    <ImageView
+        android:id="@+id/img_view_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/background"
+        android:scaleType="fitXY"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent_black_dark"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/layout_audio"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:theme="@style/AppTheme.ClearBackGroundGreenRipple"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audio"
+                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                />
+
+            <CheckBox
+                android:id="@+id/check_box_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                android:text="Disabled"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/super_transparent_white"/>
+
+        <FrameLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:theme="@style/AppTheme.ClearBackGroundGreenRipple"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Theme"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_theme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:entries="@array/theme_list"
+                android:paddingTop="25dp"
+                android:paddingLeft="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:theme="@style/AppTheme.ClearBackGroundGreenRipple"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_white"
+                android:layout_gravity="end|center_vertical"/>
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/super_transparent_white"/>
+
+        <FrameLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Timer"
+                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/white"
+                android:entries="@array/timer_list"
+                android:paddingTop="25dp"
+                android:paddingLeft="5dp"
+                android:background="?attr/selectableItemBackground"
+                android:theme="@style/AppTheme.ClearBackGroundGreenRipple"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_white"
+                android:layout_gravity="end|center_vertical"/>
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/super_transparent_white"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/super_transparent_white"
+            android:layout_gravity="center_horizontal"
+            >
+
+        <Button
+            android:id="@+id/btn_hide"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="Hide"
+            android:textColor="@color/white"
+            android:background="?attr/selectableItemBackground"
+            android:theme="@style/AppTheme.ClearBackGroundGreenRipple"
+            />
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/black</item>
+
+    </style>
+
+    <style name="AppTheme.ClearBackGroundGreenRipple">
+        <item name="colorControlHighlight">@color/green</item>
+        <item name="colorButtonNormal">@color/super_transparent_white</item>
+        <item name="selectableItemBackground">@drawable/layout_clear_button_background</item>
+        <item name="android:selectableItemBackground">@drawable/layout_clear_button_background
+        </item>
+    </style>
+    
+    
+    <style name="Spinner_Style" parent="Base.Widget.AppCompat.Spinner">
+        <item name="android:state_activated">@color/white</item>
+    </style>
+
+</resources>
