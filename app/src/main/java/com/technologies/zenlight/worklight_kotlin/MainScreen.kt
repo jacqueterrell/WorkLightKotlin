@@ -24,6 +24,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.TextView
@@ -38,20 +39,35 @@ class MainScreen : AppCompatActivity() {
         val REQUEST_CAMERA_PERMISSIONS = 1
         var timer: Long = (15 * 1) * 1000
         var isPermissions = false
-
+        var isOpen = true
     }
 
-    val sdk = Build.VERSION.SDK_INT
-    val marshMallow = Build.VERSION_CODES.M
+    private val sdk = Build.VERSION.SDK_INT
+    private val marshMallow = Build.VERSION_CODES.M
     private lateinit var camera: Camera
     private lateinit var cameraManager: CameraManager
     private lateinit var cameraId: String
     private lateinit var countDownTimer: CountDownTimer
     private var isInitialized = false
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        try{
+
+            if (intent.getStringExtra("notification") != null){
+
+                finishAffinity()
+            }
+
+        }catch (e: Exception){
+            Log.i("MainScreen",e.localizedMessage)
+        }
+
 
         countDownTimer = object : CountDownTimer(5000, 1000) {
 
@@ -155,13 +171,24 @@ class MainScreen : AppCompatActivity() {
 
     private fun setTimer() {
 
+        cancelTimer()
+
+        Handler().postDelayed({
+
+            if (isOpen){
+
+                countDownTimer.start()
+            }
+
+        }, timer)
+    }
+
+
+    fun cancelTimer(){
+
         countDownTimer.cancel()
         Handler().removeCallbacksAndMessages(this)
 
-        Handler().postDelayed({
-            countDownTimer.start()
-
-        }, timer)
     }
 
 
@@ -243,6 +270,16 @@ class MainScreen : AppCompatActivity() {
     }
 
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == REQUEST_CAMERA_PERMISSIONS && grantResults[0] >= 0){
+
+            showCameraFlash()
+        }
+    }
+
+
     override fun onResume() {
         super.onResume()
 
@@ -274,9 +311,8 @@ class MainScreen : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        Handler().removeCallbacksAndMessages(this)
-
-        countDownTimer.cancel()
+        isOpen = false
+        cancelTimer()
 
         val mNotifyMgr = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         mNotifyMgr.cancelAll()
